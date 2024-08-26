@@ -1,13 +1,13 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { TextInput } from "../components/TextInput";
+import { StyledContainer } from "../components/Container.styles";
 import { ThemeProvider, createGlobalStyle, css } from "styled-components";
 import { default as baseTheme } from "../../base-theme";
 
-const baseStyle = () => css``
+const baseStyle = () => css``;
 const GlobalStyle = createGlobalStyle`
-${baseStyle}`
-
+${baseStyle}`;
 ---
 
 <Layout title="Welcome to Astro.">
@@ -46,57 +46,59 @@ ${baseStyle}`
       />
       <strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
     </p>
+    <ThemeProvider theme={baseTheme} client:only="react">
+      <StyledContainer client:only="react">
     <form role="list" class="link-card-grid">
-      <ThemeProvider theme={baseTheme} client:only="react">
         <GlobalStyle />
-        <TextInput
-          name="name"
-          id="name"
-          label="Name"
-          placeholder="Name"
-          hint="Complete name"
-          required
-          showRequired
-          autoComplete="off"
-          client:only="react"
-        />
-        <TextInput
-          name="surname"
-          id="surname"
-          label="Surname"
-          placeholder="Surname"
-          hint="Complete surname"
-          required
-          showRequired
-          autoComplete="off"
-          client:only="react"
-        />
-        <TextInput
-          name="phone"
-          id="phone"
-          label="Phone"
-          placeholder="Phone"
-          hint="Complete phone"
-          required
-          type="tel"
-          showRequired
-          autoComplete="off"
-          client:only="react"
-        />
-        <TextInput
-          name="age"
-          id="age"
-          label="Age"
-          placeholder="Age"
-          hint="Complete age"
-          required
-          type="number"
-          showRequired
-          autoComplete="off"
-          client:only="react"
-        />
-      </ThemeProvider>
-    </form>
+          <TextInput
+            name="name"
+            id="name"
+            label="Name"
+            placeholder="Name"
+            hint="Complete name"
+            required
+            showRequired
+            autoComplete="off"
+            client:only="react"
+          />
+          <TextInput
+            name="surname"
+            id="surname"
+            label="Surname"
+            placeholder="Surname"
+            hint="Complete surname"
+            required
+            showRequired
+            autoComplete="off"
+            client:only="react"
+          />
+          <TextInput
+            name="phone"
+            id="phone"
+            label="Phone"
+            placeholder="Phone"
+            hint="Complete phone"
+            required
+            type="tel"
+            showRequired
+            autoComplete="off"
+            client:only="react"
+          />
+          <TextInput
+            name="age"
+            id="age"
+            label="Age"
+            placeholder="Age"
+            hint="Complete age"
+            required
+            type="number"
+            showRequired
+            autoComplete="off"
+            client:only="react"
+          />
+        </form>
+      </StyledContainer>
+    </ThemeProvider>
   </main>
 </Layout>
 
