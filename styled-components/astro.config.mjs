@@ -2,7 +2,6 @@ import { defineConfig } from 'astro/config';
 import react from "@astrojs/react";
 import node from '@astrojs/node'
 import { NodeGlobalsPolyfillPlugin } from '@esbuild-plugins/node-globals-polyfill'
-import { Buffer } from 'buffer';
 
 
 // https://astro.build/config
@@ -33,6 +32,9 @@ export default defineConfig({
           process: true,
         }),
       ],
+    },
+    ssr: {
+      noExternal: true,
     }
   }
 });
