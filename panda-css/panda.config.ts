@@ -5,7 +5,10 @@ export default defineConfig({
   preflight: true,
 
   // Where to look for your css declarations
-  include: ["./src/**/*.{js,jsx,ts,tsx,astro}", "./pages/**/*.{js,jsx,ts,tsx,astro}"],
+  include: [
+    "./src/**/*.{js,jsx,ts,tsx,astro}",
+    "./pages/**/*.{js,jsx,ts,tsx,astro}",
+  ],
 
   // Files to exclude
   exclude: [],
@@ -105,6 +108,16 @@ export default defineConfig({
 
         animations: {
           default: { value: "0.2s ease-in-out" },
+        },
+      },
+      keyframes: {
+        fromHidden: {
+          from: {
+            opacity: 0,
+          },
+          to: {
+            opacity: 1,
+          },
         },
       },
     },

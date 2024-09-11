@@ -47,7 +47,7 @@ ${baseStyle}`;
       <strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
     </p>
     <ThemeProvider theme={baseTheme} client:only="react">
-      <StyledContainer client:only="react">
+      <StyledContainer bgColor="black" className="full-width" client:only="react">
         <form role="list" class="link-card-grid">
           <GlobalStyle />
           <TextInput
@@ -59,6 +59,7 @@ ${baseStyle}`;
             required
             showRequired
             autoComplete="off"
+            minLength={3}
             client:only="react"
           />
           <TextInput
@@ -70,6 +71,7 @@ ${baseStyle}`;
             required
             showRequired
             autoComplete="off"
+            minLength={3}
             client:only="react"
           />
           <TextInput
@@ -82,6 +84,7 @@ ${baseStyle}`;
             type="tel"
             showRequired
             autoComplete="off"
+            minLength={3}
             client:only="react"
           />
           <TextInput
@@ -94,6 +97,7 @@ ${baseStyle}`;
             type="number"
             showRequired
             autoComplete="off"
+            minLength={1}
             client:only="react"
           />
         </form>

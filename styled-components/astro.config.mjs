@@ -1,28 +1,25 @@
-import { defineConfig } from 'astro/config';
+import { defineConfig } from "astro/config";
 import react from "@astrojs/react";
-import node from '@astrojs/node'
-import { NodeGlobalsPolyfillPlugin } from '@esbuild-plugins/node-globals-polyfill'
-
+import node from "@astrojs/node";
+import { NodeGlobalsPolyfillPlugin } from "@esbuild-plugins/node-globals-polyfill";
 
 // https://astro.build/config
 export default defineConfig({
   integrations: [react()],
-  output: "server",
-  adapter: node({
-    mode: "standalone"
-  }),
   vite: {
     define: {
-      global: 'globalThis',
+      global: "globalThis",
       process,
     },
-    plugins: [ NodeGlobalsPolyfillPlugin({
-      buffer: true,
-      process: true,
-    })],
+    plugins: [
+      NodeGlobalsPolyfillPlugin({
+        buffer: true,
+        process: true,
+      }),
+    ],
     optimizeDeps: {
       define: {
-        global: 'globalThis',
+        global: "globalThis",
         process,
       },
       // Enable esbuild polyfill plugins
@@ -33,8 +30,5 @@ export default defineConfig({
         }),
       ],
     },
-    ssr: {
-      noExternal: true,
-    }
-  }
+  },
 });
